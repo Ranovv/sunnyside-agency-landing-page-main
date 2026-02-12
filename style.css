@@ -1,41 +1,18 @@
-/*
-  Front-end Style Guide
-  
-  Layout:
-  - Mobile: 375px
-  - Desktop: 1440px
-  
-  Colors:
-  Primary:
-  - Red 400: hsl(7, 99%, 70%) (Call to Action text like "Learn more")
-  - Yellow 500: hsl(51, 100%, 49%) (Main header background?) No, wait.
-  - Green 800 (graphic design text): hsl(167, 40%, 24%)
-  - Blue 800 (photography text): hsl(198, 62%, 26%)
-  - Green 500 (footer): hsl(167, 34%, 41%)
-  
-  Neutral:
-  - Grey 950: hsl(212, 27%, 19%) (Very dark blue - Headings)
-  - Grey 600: hsl(213, 9%, 39%) (Dark grayish blue - Body text)
-  - Grey 550: hsl(232, 10%, 55%) (Grayish blue - Footer text?)
-  - Grey 400: hsl(210, 4%, 67%) (White - Used for text on dark backgrounds)
-  - White: hsl(0, 100%, 100%)
-*/
-
 :root {
   --clr-primary-red: hsl(7, 99%, 70%);
   --clr-primary-yellow: hsl(51, 100%, 49%);
-  --clr-primary-cyan-dark: hsl(167, 40%, 24%); /* Graphic design text */
-  --clr-primary-blue-dark: hsl(198, 62%, 26%); /* Photography text */
+  --clr-primary-cyan-dark: hsl(167, 40%, 24%);
+  --clr-primary-blue-dark: hsl(198, 62%, 26%);
   --clr-primary-cyan-footer: hsl(
     168,
     34%,
     41%
-  ); /* Footer background? Or text? Check context later. "Green 500 (footer)" usually means background or main color for footer. */
+  ); 
 
-  --clr-neutral-desaturated-blue-dark: hsl(212, 27%, 19%); /* Headings */
-  --clr-neutral-grayish-blue-dark: hsl(213, 9%, 39%); /* Body */
+  --clr-neutral-desaturated-blue-dark: hsl(212, 27%, 19%); 
+  --clr-neutral-grayish-blue-dark: hsl(213, 9%, 39%); 
   --clr-neutral-grayish-blue: hsl(232, 10%, 55%);
-  --clr-neutral-grayish-blue-light: hsl(210, 4%, 67%); /* Client names maybe? */
+  --clr-neutral-grayish-blue-light: hsl(210, 4%, 67%); 
   --clr-neutral-white: hsl(0, 100%, 100%);
 
   --ff-sans: "Barlow", sans-serif;
@@ -46,7 +23,6 @@
   --fw-900: 900;
 }
 
-/* Reset */
 *,
 *::before,
 *::after {
@@ -101,7 +77,6 @@ a {
   color: inherit;
 }
 
-/* Utilities */
 .container {
   max-width: 1440px;
   margin-inline: auto;
@@ -114,17 +89,15 @@ a {
   text-transform: uppercase;
 }
 
-/* Navigation */
 .header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1.5rem 1.5rem; /* Reduced padding */
+  padding: 1.5rem 1.5rem; 
   z-index: 100;
   transition: background-color 0.3s ease;
 }
 
-/* Scrolled state for sticky header */
 .header.scrolled {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -147,59 +120,46 @@ a {
   align-items: center;
 }
 
-/* Navigation Links & Buttons */
 .nav-link {
   color: var(--clr-neutral-white);
   font-size: 1.125rem;
-  font-family: var(--ff-sans); /* Keep consistent */
-  padding: 0.75rem 1.5rem; /* Add padding to all links to match button feel */
+  font-family: var(--ff-sans); 
+  padding: 0.75rem 1.5rem; 
   border-radius: 2rem;
   transition: all 0.3s ease;
   text-decoration: none;
 }
 
-/* Hover state for non-active links */
 .nav-link:hover {
   background-color: hsla(0, 100%, 100%, 0.1); 
   color: var(--clr-neutral-white);
 }
-
-/* Active State - The "White Button" look */
 .nav-link.active {
   background-color: var(--clr-neutral-white);
-  color: var(--clr-neutral-desaturated-blue-dark); /* Dark text on white pill */
-  font-family: var(--ff-serif); /* Optional: if you want the active one to look exactly like the old CTA (serif font) */
+  color: var(--clr-neutral-desaturated-blue-dark); 
+  font-family: var(--ff-serif); 
   font-weight: 700;
-  text-transform: uppercase; /* Match the contact button style? Or keep normal? Contact was uppercase serif. Let's make active state uppercase serif to strictly match "the contact background moving" */
-  font-size: 0.9rem; /* Adjust size to match button */
-  padding: 1rem 2rem; /* Exact button padding */
+  text-transform: uppercase; 
+  font-size: 0.9rem; 
+  padding: 1rem 2rem; 
 }
-
-/* Remove separate .btn class dependencies for Contact if we treat it as a nav-link now, or keep .btn as a helper. 
-   But user wants the "Contact" look to MOVE. So all links need to be able to morph into that look. 
-*/
-
-/* Reset specific btn classes if we remove them from HTML, or just override them */
-/* We will clean up the HTML to use nav-link for Contact as well */
 
 .btn-yellow {
   background-color: var(--clr-primary-yellow);
   color: var(--clr-neutral-desaturated-blue-dark);
 }
-
-/* Header / Hero */
 .hero {
   background-image: url("./images/mobile/image-header.jpg");
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
-  min-height: 100vh; /* Or specifically tailored */
+  min-height: 100vh; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-bottom: 20vh; /* Adjust based on image arrow position */
+  padding-bottom: 20vh; 
   padding-inline: 1rem;
 }
 
@@ -231,15 +191,14 @@ a {
   }
 }
 
-/* Features Grid */
 .grid-section {
   display: grid;
   grid-template-columns: 1fr;
 }
 
 .grid-item {
-  min-height: 400px; /* arbitrary initially */
-  display: flex; /* easier for image containers */
+  min-height: 400px; 
+  display: flex; 
 }
 
 .grid-content {
@@ -298,7 +257,7 @@ a {
 .grid-image {
   width: 100%;
   height: auto;
-  min-height: 300px; /* Fallback */
+  min-height: 300px; 
 }
 
 .grid-image img {
@@ -307,13 +266,12 @@ a {
   object-fit: cover;
 }
 
-/* Graphic Design & Photography Text Overlay */
 .graphic-design,
 .photography {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  aspect-ratio: 375/600; /* Approximate form design */
+  aspect-ratio: 375/600; 
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -344,7 +302,6 @@ a {
   line-height: 1.7;
 }
 
-/* Testimonials */
 .testimonials {
   padding: 4rem 1.5rem;
   text-align: center;
@@ -381,7 +338,7 @@ a {
 }
 
 .testimonial-text {
-  color: var(--clr-neutral-desaturated-blue-dark); /* Should verify color */
+  color: var(--clr-neutral-desaturated-blue-dark); 
   color: var(--clr-neutral-grayish-blue-dark);
   line-height: 1.8;
   max-width: 35ch;
@@ -398,7 +355,6 @@ a {
   font-size: 0.9rem;
 }
 
-/* Gallery */
 .gallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -410,10 +366,10 @@ a {
   object-fit: cover;
 }
 
-/* Footer */
+
 .footer {
   background-color: var(--clr-primary-cyan-footer);
-  color: var(--clr-primary-cyan-dark); /* Usually darker green for text */
+  color: var(--clr-primary-cyan-dark); 
   padding: 4rem 2rem;
   text-align: center;
 }
@@ -421,12 +377,11 @@ a {
 .footer-logo {
   margin-bottom: 2.5rem;
   filter: brightness(0) saturate(100%) invert(32%) sepia(12%) saturate(1637%)
-    hue-rotate(118deg) brightness(97%) contrast(92%); /* Try to match the dark green color from SVG if possible or use inline SVG to color it */
+    hue-rotate(118deg) brightness(97%) contrast(92%); 
   width: 170px;
   height: auto;
   margin-inline: auto;
 }
-/* Actually, cleaner to just use SVG fill if inline, or filter if img. The logo is green in design? Let's assume the logo.svg is white or black, footer logo in design is usually that dark green. */
 
 .footer-nav {
   display: flex;
@@ -436,11 +391,11 @@ a {
 }
 
 .footer-nav a {
-  color: hsl(167, 40%, 24%); /* Dark green */
+  color: hsl(167, 40%, 24%); 
   opacity: 0.7;
   transition: opacity 0.3s ease;
   font-family: var(--ff-sans);
-  font-weight: 600; /* Usually bold in footer */
+  font-weight: 600; 
 }
 
 .footer-nav a:hover {
@@ -460,13 +415,11 @@ a {
 .social-links img {
   width: 20px;
   height: 20px;
-  /* Filter to turn white/black icon to Dark Green (hsl(167, 40%, 24%)) */
   filter: brightness(0) saturate(100%) invert(20%) sepia(13%) saturate(1478%) hue-rotate(124deg) brightness(95%) contrast(96%);
   transition: filter 0.3s ease;
 }
 
 .social-links a:hover img {
-  /* Filter to turn to White on hover */
   filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
 }
 
@@ -475,7 +428,6 @@ a {
   color: white;
 }
 
-/* Media Queries */
 
 @media (min-width: 768px) {
   .hero {
@@ -485,19 +437,6 @@ a {
   .grid-section {
     grid-template-columns: 1fr 1fr;
   }
-
-  /* Order manipulation not needed if HTML structure matches desktop layout */
-  /* 
-     Row 1: Text | Image
-     Row 2: Image | Text
-  */
-
-  /* Wait, usually:
-     Row 1: Transform Text | Transform Image
-     Row 2: Stand Out Image | Stand Out Text
-  */
-
-  /* Let's be specific with classes in HTML instead of nth-child for safety */
 
   .grid-content {
     align-items: flex-start;
@@ -525,7 +464,6 @@ a {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  /* Nav Desktop */
   .nav-toggle {
     display: none;
   }
@@ -544,7 +482,6 @@ a {
     color: var(--clr-neutral-white);
   }
   
-  /* Ensure images match the height of text columns */
   .grid-image {
     height: 100%;
   }
@@ -558,7 +495,6 @@ a {
 }
 
 @media (max-width: 767px) {
-  /* Mobile Menu */
   .nav-toggle {
     display: block;
   }
@@ -572,7 +508,7 @@ a {
     flex-direction: column;
     padding: 2rem;
     gap: 2rem;
-    display: none; /* hidden by default */
+    display: none; 
   }
 
   .nav-list::before {
@@ -598,16 +534,8 @@ a {
     color: var(--clr-neutral-desaturated-blue-dark);
   }
   .btn-white:hover {
-    background-color: hsl(51, 100%, 40%); /* Darker yellow? */
+    background-color: hsl(51, 100%, 40%); 
   }
-
-  /* In mobile, image usually comes first visually, but text might be first in HTML. 
-     Often design is:
-     Image (Egg)
-     Text (Transform)
-     Image (Cup)
-     Text (Stand out)
-  */
 
   .grid-item.order-mobile-first {
     order: -1;
