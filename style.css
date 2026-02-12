@@ -1,0 +1,615 @@
+/*
+  Front-end Style Guide
+  
+  Layout:
+  - Mobile: 375px
+  - Desktop: 1440px
+  
+  Colors:
+  Primary:
+  - Red 400: hsl(7, 99%, 70%) (Call to Action text like "Learn more")
+  - Yellow 500: hsl(51, 100%, 49%) (Main header background?) No, wait.
+  - Green 800 (graphic design text): hsl(167, 40%, 24%)
+  - Blue 800 (photography text): hsl(198, 62%, 26%)
+  - Green 500 (footer): hsl(167, 34%, 41%)
+  
+  Neutral:
+  - Grey 950: hsl(212, 27%, 19%) (Very dark blue - Headings)
+  - Grey 600: hsl(213, 9%, 39%) (Dark grayish blue - Body text)
+  - Grey 550: hsl(232, 10%, 55%) (Grayish blue - Footer text?)
+  - Grey 400: hsl(210, 4%, 67%) (White - Used for text on dark backgrounds)
+  - White: hsl(0, 100%, 100%)
+*/
+
+:root {
+  --clr-primary-red: hsl(7, 99%, 70%);
+  --clr-primary-yellow: hsl(51, 100%, 49%);
+  --clr-primary-cyan-dark: hsl(167, 40%, 24%); /* Graphic design text */
+  --clr-primary-blue-dark: hsl(198, 62%, 26%); /* Photography text */
+  --clr-primary-cyan-footer: hsl(
+    168,
+    34%,
+    41%
+  ); /* Footer background? Or text? Check context later. "Green 500 (footer)" usually means background or main color for footer. */
+
+  --clr-neutral-desaturated-blue-dark: hsl(212, 27%, 19%); /* Headings */
+  --clr-neutral-grayish-blue-dark: hsl(213, 9%, 39%); /* Body */
+  --clr-neutral-grayish-blue: hsl(232, 10%, 55%);
+  --clr-neutral-grayish-blue-light: hsl(210, 4%, 67%); /* Client names maybe? */
+  --clr-neutral-white: hsl(0, 100%, 100%);
+
+  --ff-sans: "Barlow", sans-serif;
+  --ff-serif: "Fraunces", serif;
+
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-900: 900;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff-sans);
+  font-size: 18px;
+  color: var(--clr-neutral-grayish-blue-dark);
+  line-height: 1.6;
+  background-color: var(--clr-neutral-white);
+  min-height: 100vh;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ff-serif);
+  font-weight: var(--fw-900);
+  color: var(--clr-neutral-desaturated-blue-dark);
+  line-height: 1.1;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Utilities */
+.container {
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* Navigation */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1.5rem 1.5rem; /* Reduced padding */
+  z-index: 100;
+  transition: background-color 0.3s ease;
+}
+
+/* Scrolled state for sticky header */
+.header.scrolled {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.nav-list {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Navigation Links & Buttons */
+.nav-link {
+  color: var(--clr-neutral-white);
+  font-size: 1.125rem;
+  font-family: var(--ff-sans); /* Keep consistent */
+  padding: 0.75rem 1.5rem; /* Add padding to all links to match button feel */
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+/* Hover state for non-active links */
+.nav-link:hover {
+  background-color: hsla(0, 100%, 100%, 0.1); 
+  color: var(--clr-neutral-white);
+}
+
+/* Active State - The "White Button" look */
+.nav-link.active {
+  background-color: var(--clr-neutral-white);
+  color: var(--clr-neutral-desaturated-blue-dark); /* Dark text on white pill */
+  font-family: var(--ff-serif); /* Optional: if you want the active one to look exactly like the old CTA (serif font) */
+  font-weight: 700;
+  text-transform: uppercase; /* Match the contact button style? Or keep normal? Contact was uppercase serif. Let's make active state uppercase serif to strictly match "the contact background moving" */
+  font-size: 0.9rem; /* Adjust size to match button */
+  padding: 1rem 2rem; /* Exact button padding */
+}
+
+/* Remove separate .btn class dependencies for Contact if we treat it as a nav-link now, or keep .btn as a helper. 
+   But user wants the "Contact" look to MOVE. So all links need to be able to morph into that look. 
+*/
+
+/* Reset specific btn classes if we remove them from HTML, or just override them */
+/* We will clean up the HTML to use nav-link for Contact as well */
+
+.btn-yellow {
+  background-color: var(--clr-primary-yellow);
+  color: var(--clr-neutral-desaturated-blue-dark);
+}
+
+/* Header / Hero */
+.hero {
+  background-image: url("./images/mobile/image-header.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  min-height: 100vh; /* Or specifically tailored */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 20vh; /* Adjust based on image arrow position */
+  padding-inline: 1rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+  color: var(--clr-neutral-white);
+  margin-bottom: 4rem;
+  text-transform: uppercase;
+}
+
+.arrow-down {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Features Grid */
+.grid-section {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.grid-item {
+  min-height: 400px; /* arbitrary initially */
+  display: flex; /* easier for image containers */
+}
+
+.grid-content {
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.grid-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.grid-content p {
+  color: var(--clr-neutral-grayish-blue-dark);
+  margin-bottom: 2rem;
+  max-width: 45ch;
+}
+
+.learn-more {
+  font-family: var(--ff-serif);
+  font-weight: var(--fw-900);
+  text-transform: uppercase;
+  color: var(--clr-neutral-desaturated-blue-dark);
+  position: relative;
+  z-index: 1;
+}
+
+.learn-more::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: -5px;
+  right: -5px;
+  height: 10px;
+  border-radius: 5px;
+  opacity: 0.3;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.learn-more:hover::after {
+  opacity: 1;
+}
+
+.learn-more.yellow::after {
+  background-color: var(--clr-primary-yellow);
+}
+.learn-more.red::after {
+  background-color: var(--clr-primary-red);
+}
+
+.grid-image {
+  width: 100%;
+  height: auto;
+  min-height: 300px; /* Fallback */
+}
+
+.grid-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Graphic Design & Photography Text Overlay */
+.graphic-design,
+.photography {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 375/600; /* Approximate form design */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 3.5rem;
+  text-align: center;
+}
+
+.graphic-design {
+  background-image: url("./images/mobile/image-graphic-design.jpg");
+  color: var(--clr-primary-cyan-dark);
+}
+
+.photography {
+  background-image: url("./images/mobile/image-photography.jpg");
+  color: var(--clr-primary-blue-dark);
+}
+
+.overlay-content h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: inherit;
+}
+
+.overlay-content p {
+  max-width: 35ch;
+  margin-inline: auto;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Testimonials */
+.testimonials {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  color: var(--clr-neutral-grayish-blue-dark);
+}
+
+.testimonials h3 {
+  color: var(--clr-neutral-grayish-blue-light);
+  font-family: var(--ff-serif);
+  font-weight: var(--fw-900);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-bottom: 4rem;
+  font-size: 1rem;
+}
+
+.testimonials-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.client-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+}
+
+.testimonial-text {
+  color: var(--clr-neutral-desaturated-blue-dark); /* Should verify color */
+  color: var(--clr-neutral-grayish-blue-dark);
+  line-height: 1.8;
+  max-width: 35ch;
+}
+
+.client-info h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--clr-neutral-desaturated-blue-dark);
+}
+
+.client-info span {
+  color: var(--clr-neutral-grayish-blue-light);
+  font-size: 0.9rem;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--clr-primary-cyan-footer);
+  color: var(--clr-primary-cyan-dark); /* Usually darker green for text */
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.footer-logo {
+  margin-bottom: 2.5rem;
+  filter: brightness(0) saturate(100%) invert(32%) sepia(12%) saturate(1637%)
+    hue-rotate(118deg) brightness(97%) contrast(92%); /* Try to match the dark green color from SVG if possible or use inline SVG to color it */
+  width: 170px;
+  height: auto;
+  margin-inline: auto;
+}
+/* Actually, cleaner to just use SVG fill if inline, or filter if img. The logo is green in design? Let's assume the logo.svg is white or black, footer logo in design is usually that dark green. */
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.footer-nav a {
+  color: hsl(167, 40%, 24%); /* Dark green */
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  font-family: var(--ff-sans);
+  font-weight: 600; /* Usually bold in footer */
+}
+
+.footer-nav a:hover {
+  opacity: 1;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  color: hsl(167, 40%, 24%);
+}
+
+.social-links img {
+  width: 20px;
+  height: 20px;
+  /* Filter to turn white/black icon to Dark Green (hsl(167, 40%, 24%)) */
+  filter: brightness(0) saturate(100%) invert(20%) sepia(13%) saturate(1478%) hue-rotate(124deg) brightness(95%) contrast(96%);
+  transition: filter 0.3s ease;
+}
+
+.social-links a:hover img {
+  /* Filter to turn to White on hover */
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
+.attribution {
+  margin-top: 3rem;
+  color: white;
+}
+
+/* Media Queries */
+
+@media (min-width: 768px) {
+  .hero {
+    background-image: url("./images/desktop/image-header.jpg");
+  }
+
+  .grid-section {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Order manipulation not needed if HTML structure matches desktop layout */
+  /* 
+     Row 1: Text | Image
+     Row 2: Image | Text
+  */
+
+  /* Wait, usually:
+     Row 1: Transform Text | Transform Image
+     Row 2: Stand Out Image | Stand Out Text
+  */
+
+  /* Let's be specific with classes in HTML instead of nth-child for safety */
+
+  .grid-content {
+    align-items: flex-start;
+    text-align: left;
+    padding: 8rem;
+  }
+
+  .graphic-design {
+    background-image: url("./images/desktop/image-graphic-design.jpg");
+    aspect-ratio: unset;
+    min-height: 600px;
+  }
+
+  .photography {
+    background-image: url("./images/desktop/image-photography.jpg");
+    aspect-ratio: unset;
+    min-height: 600px;
+  }
+
+  .testimonials-grid {
+    flex-direction: row;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Nav Desktop */
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    background: transparent;
+    padding: 0;
+    width: auto;
+    height: auto;
+  }
+
+  .nav-link {
+    color: var(--clr-neutral-white);
+  }
+  
+  /* Ensure images match the height of text columns */
+  .grid-image {
+    height: 100%;
+  }
+  
+  .grid-image picture,
+  .grid-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Mobile Menu */
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-list {
+    position: absolute;
+    top: 6rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    background-color: var(--clr-neutral-white);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+    display: none; /* hidden by default */
+  }
+
+  .nav-list::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: 0;
+    border-style: solid;
+    border-width: 0 0 20px 20px;
+    border-color: transparent transparent var(--clr-neutral-white) transparent;
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .nav-link {
+    color: var(--clr-neutral-grayish-blue-dark);
+  }
+
+  .btn-white {
+    background-color: var(--clr-primary-yellow);
+    color: var(--clr-neutral-desaturated-blue-dark);
+  }
+  .btn-white:hover {
+    background-color: hsl(51, 100%, 40%); /* Darker yellow? */
+  }
+
+  /* In mobile, image usually comes first visually, but text might be first in HTML. 
+     Often design is:
+     Image (Egg)
+     Text (Transform)
+     Image (Cup)
+     Text (Stand out)
+  */
+
+  .grid-item.order-mobile-first {
+    order: -1;
+  }
+}

@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Sunnyside agency landing page</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav container">
+        <a href="#" class="logo">
+          <img src="./images/logo.svg" alt="Sunnyside" />
+        </a>
+
+        <div class="nav-toggle" id="navToggle">
+          <img src="./images/icon-hamburger.svg" alt="Menu" />
+        </div>
+
+        <ul class="nav-list" id="navList">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ... (rest of body) ... -->
+
+    <!-- Hero -->
+    <section class="hero">
+      <h1>We are creatives</h1>
+      <img src="./images/icon-arrow-down.svg" alt="" class="arrow-down" />
+    </section>
+
+    <!-- Features Grid -->
+    <main>
+      <!-- Features Grid -->
+      <section class="grid-section">
+        <!-- Item 1: Text -->
+        <div class="grid-item grid-content" id="about">
+          <h2>Transform your brand</h2>
+          <p>
+            We are a full-service creative agency specializing in helping brands
+            grow fast. Engage your clients through compelling visuals that do
+            most of the marketing for you.
+          </p>
+          <a href="#" class="learn-more yellow">Learn more</a>
+        </div>
+
+        <!-- Item 2: Image (Egg) -->
+        <div class="grid-item grid-image order-mobile-first">
+          <picture>
+            <source
+              media="(min-width: 768px)"
+              srcset="./images/desktop/image-transform.jpg"
+            />
+            <img
+              src="./images/mobile/image-transform.jpg"
+              alt="Egg on a yellow background"
+            />
+          </picture>
+        </div>
+
+        <!-- Item 3: Image (Red Cup) -->
+        <div class="grid-item grid-image">
+          <picture>
+            <source
+              media="(min-width: 768px)"
+              srcset="./images/desktop/image-stand-out.jpg"
+            />
+            <img
+              src="./images/mobile/image-stand-out.jpg"
+              alt="Red cup on a pink background"
+            />
+          </picture>
+        </div>
+
+        <!-- Item 4: Text -->
+        <div class="grid-item grid-content">
+          <h2>Stand out to the right audience</h2>
+          <p>
+            Using a collaborative formula of designers, researchers,
+            photographers, videographers, and copywriters, we’ll build and
+            extend your brand in digital places.
+          </p>
+          <a href="#" class="learn-more red">Learn more</a>
+        </div>
+
+        <!-- Item 5: Graphic Design -->
+        <div class="grid-item graphic-design" id="services">
+          <div class="overlay-content">
+            <h2>Graphic design</h2>
+            <p>
+              Great design makes you memorable. We deliver artwork that
+              underscores your brand message and captures potential clients’
+              attention.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 6: Photography -->
+        <div class="grid-item photography">
+          <div class="overlay-content">
+            <h2>Photography</h2>
+            <p>
+              Increase your credibility by getting the most stunning,
+              high-quality photos that improve your business image.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="testimonials container">
+        <h3>Client testimonials</h3>
+        <div class="testimonials-grid" id="projects">
+          <!-- Client 1 -->
+          <div class="testimonial-card">
+            <img
+              src="./images/image-emily.jpg"
+              alt="Emily R."
+              class="client-img"
+            />
+            <p class="testimonial-text">
+              We put our trust in Sunnyside and they delivered, making sure our
+              needs were met and deadlines were always hit.
+            </p>
+            <div class="client-info">
+              <h4>Emily R.</h4>
+              <span>Marketing Director</span>
+            </div>
+          </div>
+
+          <!-- Client 2 -->
+          <div class="testimonial-card">
+            <img
+              src="./images/image-thomas.jpg"
+              alt="Thomas S."
+              class="client-img"
+            />
+            <p class="testimonial-text">
+              Sunnyside’s enthusiasm coupled with their keen interest in our
+              brand’s success made it a satisfying and enjoyable experience.
+            </p>
+            <div class="client-info">
+              <h4>Thomas S.</h4>
+              <span>Chief Operating Officer</span>
+            </div>
+          </div>
+
+          <!-- Client 3 -->
+          <div class="testimonial-card">
+            <img
+              src="./images/image-jennie.jpg"
+              alt="Jennie F."
+              class="client-img"
+            />
+            <p class="testimonial-text">
+              Incredible end result! Our sales increased over 400% when we
+              worked with Sunnyside. Highly recommended!
+            </p>
+            <div class="client-info">
+              <h4>Jennie F.</h4>
+              <span>Business Owner</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section class="gallery">
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcset="./images/desktop/image-gallery-milkbottles.jpg"
+          />
+          <img
+            src="./images/mobile/image-gallery-milkbottles.jpg"
+            alt="Milk bottles"
+          />
+        </picture>
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcset="./images/desktop/image-gallery-orange.jpg"
+          />
+          <img src="./images/mobile/image-gallery-orange.jpg" alt="Orange" />
+        </picture>
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcset="./images/desktop/image-gallery-cone.jpg"
+          />
+          <img src="./images/mobile/image-gallery-cone.jpg" alt="Cone" />
+        </picture>
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcset="./images/desktop/image-gallery-sugarcubes.jpg"
+          />
+          <img
+            src="./images/mobile/image-gallery-sugar-cubes.jpg"
+            alt="Sugar cubes"
+          />
+        </picture>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="footer-logo">
+        <!-- Inline SVG for Logo to change color if needed, or filter img -->
+        <img
+          src="./images/logo.svg"
+          alt="Sunnyside"
+          style="
+            width: 170px;
+            filter: brightness(0) saturate(100%) invert(32%) sepia(12%)
+              saturate(1637%) hue-rotate(118deg) brightness(97%) contrast(92%);
+          "
+        />
+      </div>
+
+      <nav class="footer-nav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+      </nav>
+
+      <div class="social-links">
+        <a href="#">
+          <img src="./images/icon-facebook.svg" alt="Facebook" />
+        </a>
+        <a href="#">
+          <img src="./images/icon-instagram.svg" alt="Instagram" />
+        </a>
+        <a href="#">
+          <img src="./images/icon-twitter.svg" alt="Twitter" />
+        </a>
+        <a href="#">
+          <img src="./images/icon-pinterest.svg" alt="Pinterest" />
+        </a>
+      </div>
+
+      <div class="attribution">
+        Challenge by
+        <a
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+          style="color: white"
+          >Frontend Mentor</a
+        >. Coded by <a href="#" style="color: white">Your Name Here</a>.
+      </div>
+    </footer>
+
+    <!-- Duplicate script removed -->
+    <script>
+      const navToggle = document.getElementById("navToggle");
+      const navList = document.getElementById("navList");
+      const header = document.querySelector(".header");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const sections = document.querySelectorAll(
+        "section[id], footer[id], div[id]",
+      ); // Include sections and footer
+
+      navToggle.addEventListener("click", () => {
+        navList.classList.toggle("active");
+      });
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Active Link Highlighter logic
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5, // Trigger when 50% of the section is visible
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Remove active class from all links
+            navLinks.forEach((link) => link.classList.remove("active"));
+
+            // Add active class to corresponding link
+            const id = entry.target.getAttribute("id");
+            const activeLink = document.querySelector(
+              `.nav-link[href="#${id}"]`,
+            );
+            if (activeLink) {
+              activeLink.classList.add("active");
+            }
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach((section) => {
+        observer.observe(section);
+      });
+    </script>
+  </body>
+</html>
